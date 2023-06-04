@@ -1,0 +1,32 @@
+import pygame
+
+# Initialize pygame
+pygame.init()
+
+# Create a window
+screen = pygame.display.set_mode((800, 600))
+
+# Create a ferrocement canal lining
+canal_lining = pygame.Surface((800, 600))
+canal_lining.fill((255, 255, 255))
+
+# Draw the canal lining
+for i in range(0, 800):
+    for j in range(0, 600):
+        if i % 10 == 0 and j % 10 == 0:
+            canal_lining.set_at((i, j), (0, 0, 0))
+
+# Create an animation loop
+while True:
+    # Handle events
+    for event in pygame.event.get():
+        # Quit if the user quits
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    # Draw the canal lining
+    screen.blit(canal_lining, (0, 0))
+
+    # Update the display
+    pygame.display.update()
